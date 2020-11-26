@@ -1,7 +1,7 @@
 ﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using System.Collections.Generic;
 using Sino_UnderStructure_II;
+using System.Collections.Generic;
 
 namespace TannyRevitAPIDemo
 {
@@ -17,11 +17,11 @@ namespace TannyRevitAPIDemo
             {
                 Element elem = doc.GetElement(id);
                 Floor floor = elem as Floor;
-                List<Face> faceList = ElementMethod.GetSideFace(floor);
-                PopupBox.Error($"faceList={faceList.Count}");
+                List<Face> faceList = ElementMethod.GetSideFace(floor, eNormalVector.Front);
+                PopupBox.Test($"faceList={faceList.Count}");
             }
             return Result.Succeeded;
         }
-       
+
     }
 }
