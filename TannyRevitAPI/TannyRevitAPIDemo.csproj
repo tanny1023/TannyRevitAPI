@@ -61,30 +61,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Sino_UnderStructure_II\Sino_UnderStructure_II\Sino_UnderStructure_II\cArc.cs">
-      <Link>cArc.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Sino_UnderStructure_II\Sino_UnderStructure_II\Sino_UnderStructure_II\cFailuresPreprocessor.cs">
-      <Link>cFailuresPreprocessor.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Sino_UnderStructure_II\Sino_UnderStructure_II\Sino_UnderStructure_II\cLine.cs">
-      <Link>cLine.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Sino_UnderStructure_II\Sino_UnderStructure_II\Sino_UnderStructure_II\eConstant.cs">
-      <Link>eConstant.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Sino_UnderStructure_II\Sino_UnderStructure_II\Sino_UnderStructure_II\ElementMethod.cs">
-      <Link>ElementMethod.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Sino_UnderStructure_II\Sino_UnderStructure_II\Sino_UnderStructure_II\GeoMethod.cs">
-      <Link>GeoMethod.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Sino_UnderStructure_II\Sino_UnderStructure_II\Sino_UnderStructure_II\ListMethod.cs">
-      <Link>ListMethod.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Sino_UnderStructure_II\Sino_UnderStructure_II\Sino_UnderStructure_II\PopupBox.cs">
-      <Link>PopupBox.cs</Link>
-    </Compile>
     <Compile Include="A001_helloWorld.cs" />
     <Compile Include="F002_IfAndError.cs" />
     <Compile Include="F004_roomContainElement.cs" />
@@ -125,7 +101,6 @@
     <Compile Include="F008_TypeDetector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="C003_setParameter.cs" />
-    <Compile Include="Tanny13_GetFloorSideFace.cs" />
     <Compile Include="Tanny00_FilterColumnandBeam.cs" />
     <Compile Include="Tanny00_SelectFaces.cs" />
     <Compile Include="Tanny09_GetProjectPt.cs" />
@@ -141,6 +116,7 @@
     <Compile Include="Tanny10_WallJoined.cs" />
     <Compile Include="Tanny11_GetFloorEdges.cs" />
     <Compile Include="Tanny12_WriteDataTable.cs" />
+    <Compile Include="Tanny14_OpenFloorAnalytycalModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="F005_MaterialSelector.resx">
