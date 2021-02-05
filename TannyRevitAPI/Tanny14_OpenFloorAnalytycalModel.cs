@@ -18,19 +18,30 @@ namespace TannyRevitAPI
             ElementCategoryFilter filter_wall = new ElementCategoryFilter(BuiltInCategory.OST_Floors);
             FilteredElementCollector collector = new FilteredElementCollector(doc);
             IList<Element> floorList = collector.WherePasses(filter_wall).WhereElementIsNotElementType().ToElements();
-
             using (Transaction trans = new Transaction(doc, "啟用分析模型"))
             {
                 trans.Start();
                 foreach (Element element in floorList)
                 {
                     Floor floor = element as Floor;
-                    OpenFloorStructuralSignificant(floor);
-                    IList<CurveLoop> list = GetExternalBoundary(floor);
-                    MessageBox.Show("list number=" + list.Count + " ^^.");
+                    if (floor != null)
+                        OpenFloorStructuralSignificant(floor);
                 }
                 trans.Commit();
+
             }
+
+            foreach (Element element in floorList)
+            {
+                Floor floor = element as Floor;
+                if (floor != null)
+                {
+
+                    IList<CurveLoop> list = GetExternalBoundary(floor);
+                    MessageBox.Show($"list={list.Count}");
+                }
+            }
+
             return Result.Succeeded;
         }
         //--開啟板的分析模型
@@ -38,8 +49,11 @@ namespace TannyRevitAPI
         {
             try
             {
-                floor.get_Parameter(BuiltInParameter.FLOOR_PARAM_IS_STRUCTURAL).Set(1);
-                floor.get_Parameter(BuiltInParameter.STRUCTURAL_ANALYTICAL_MODEL).Set(1);
+                if (floor != null)
+                {
+                    floor.get_Parameter(BuiltInParameter.FLOOR_PARAM_IS_STRUCTURAL).Set(1);
+                    floor.get_Parameter(BuiltInParameter.STRUCTURAL_ANALYTICAL_MODEL).Set(1);
+                }
             }
             catch (Exception ex)
             {
