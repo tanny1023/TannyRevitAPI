@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows;
 
-namespace TannyRevitAPIDemo
+namespace TannyRevitAPI
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     class Tanny12_WriteDataTable : IExternalCommand

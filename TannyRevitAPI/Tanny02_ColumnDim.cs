@@ -3,7 +3,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Windows.Forms;
 
-namespace TannyRevitAPIDemo
+namespace TannyRevitAPI
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     class Tanny02_ColumnDim : IExternalCommand

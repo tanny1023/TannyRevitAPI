@@ -2,10 +2,10 @@
 using Autodesk.Revit.UI;
 using System.Windows.Forms;
 
-namespace TannyRevitAPIDemo
+namespace TannyRevitAPI
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-    public class TransformPoint : IExternalCommand
+    public class Tanny00_TransformPoint : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {

@@ -7,7 +7,6 @@ using System.Windows.Forms;
 namespace TannyRevitAPI
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
-
     public class B003_MaterialFilter : IExternalCommand
     {
         /// <summary>

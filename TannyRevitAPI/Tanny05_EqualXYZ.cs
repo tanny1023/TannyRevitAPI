@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace TannyRevitAPIDemo
+namespace TannyRevitAPI
 {
     [Transaction(TransactionMode.Manual)]
     class TANNY05_EqualXYZ : IExternalCommand

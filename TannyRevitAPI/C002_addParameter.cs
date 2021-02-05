@@ -1,9 +1,9 @@
-﻿using Autodesk.Revit.UI;
-using Autodesk.Revit.DB;
+﻿using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
 using System.IO;
 using System.Windows.Forms;
 
-namespace revitAPI2017
+namespace TannyRevitAPI
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
 
@@ -17,9 +17,9 @@ namespace revitAPI2017
         /// <param name="elements"></param>
         /// <returns></returns>
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
-        {            
+        {
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
-            Document doc = uidoc.Document; 
+            Document doc = uidoc.Document;
             //this is the first time we need to generate a transaction object to chaneg the model
             Transaction trans = new Transaction(doc);
             trans.Start("instance binding");
@@ -28,12 +28,12 @@ namespace revitAPI2017
             fileStream.Close();
             //bind the file to BIM model
             doc.Application.SharedParametersFilename = "D:\\ShareParameter.txt";
-            DefinitionFile defFile = doc.Application.OpenSharedParameterFile(); 
-            bool bindResult=SetNewParameterToTypeWall(uidoc.Application, defFile); 
+            DefinitionFile defFile = doc.Application.OpenSharedParameterFile();
+            bool bindResult = SetNewParameterToTypeWall(uidoc.Application, defFile);
             //call the method to add new parameter
             if (bindResult == true)
                 MessageBox.Show("Successfully add the new parameter \"Note\" by instance binding!");
-            trans.Commit();            
+            trans.Commit();
             return Result.Succeeded;
         }
         /// <summary>

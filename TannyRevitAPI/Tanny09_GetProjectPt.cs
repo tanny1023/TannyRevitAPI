@@ -4,7 +4,7 @@ using Autodesk.Revit.UI;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace TannyRevitAPIDemo
+namespace TannyRevitAPI
 {
     [Transaction(TransactionMode.Manual)]
     class Tanny09_GetProjectPt : IExternalCommand

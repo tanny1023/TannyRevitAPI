@@ -6,7 +6,7 @@ using System;
 using Autodesk.Revit.DB.Architecture;
 using Autodesk.Revit.UI.Selection;
 
-namespace TannyRevitAPIDemo
+namespace TannyRevitAPI
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     class F005_WallGeomertry : IExternalCommand

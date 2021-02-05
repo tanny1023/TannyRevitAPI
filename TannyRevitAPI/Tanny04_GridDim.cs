@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace TannyRevitAPIDemo
+namespace TannyRevitAPI
 {
     [Transaction(TransactionMode.Manual)]
     class TANNY04_GridDim : IExternalCommand

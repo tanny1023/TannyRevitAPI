@@ -107,7 +107,7 @@
     <Compile Include="Tanny01_DividingUVmesh.cs" />
     <Compile Include="Tanny02_ColumnDim.cs" />
     <Compile Include="Tanny03-WallDIm.cs" />
-    <Compile Include="Tanny00-TransformPoint.cs" />
+    <Compile Include="Tanny00_TransformPoint.cs" />
     <Compile Include="Tanny04_GridDim.cs" />
     <Compile Include="Tanny05_EqualXYZ.cs" />
     <Compile Include="Tanny06_AnalyticalWallCurve.cs" />

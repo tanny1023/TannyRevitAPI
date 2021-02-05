@@ -1,5 +1,6 @@
 ﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
+using Autodesk.Revit.DB.Structure;
 using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 namespace TannyRevitAPI
 {
     [Transaction(TransactionMode.Manual)]
-    class Tanny14_OpenFloorAnalytycalModel
+    class Tanny14_OpenFloorAnalytycalModel : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -25,18 +26,20 @@ namespace TannyRevitAPI
                 {
                     Floor floor = element as Floor;
                     OpenFloorStructuralSignificant(floor);
+                    IList<CurveLoop> list = GetExternalBoundary(floor);
+                    MessageBox.Show("list number=" + list.Count + " ^^.");
                 }
                 trans.Commit();
             }
-            MessageBox.Show("You have selected total " + floorList.Count + " elements.");
             return Result.Succeeded;
         }
+        //--開啟板的分析模型
         public void OpenFloorStructuralSignificant(Floor floor)
         {
             try
             {
+                floor.get_Parameter(BuiltInParameter.FLOOR_PARAM_IS_STRUCTURAL).Set(1);
                 floor.get_Parameter(BuiltInParameter.STRUCTURAL_ANALYTICAL_MODEL).Set(1);
-
             }
             catch (Exception ex)
             {
@@ -44,6 +47,24 @@ namespace TannyRevitAPI
                 throw;
             }
 
+        }
+        //--取出分析模型的外側邊界
+        public IList<CurveLoop> GetExternalBoundary(Floor floor)
+        {
+            //--得到分析模型的表面
+            AnalyticalModelSurface analyticalModelSurface = floor.GetAnalyticalModel() as AnalyticalModelSurface;
+            //--得到分析模型表面的IList<CurveLoop>
+            IList<CurveLoop> analyticalFloorLoops = analyticalModelSurface.GetLoops(AnalyticalLoopType.External);
+            return analyticalFloorLoops;
+        }
+        //--取出分析模型的內側邊界
+        public IList<CurveLoop> GetInternalBoundary(Floor floor)
+        {
+            //--得到分析模型的表面
+            AnalyticalModelSurface analyticalModelSurface = floor.GetAnalyticalModel() as AnalyticalModelSurface;
+            //--得到分析模型表面的IList<CurveLoop>
+            IList<CurveLoop> analyticalFloorLoops = analyticalModelSurface.GetLoops(AnalyticalLoopType.Internal);
+            return analyticalFloorLoops;
         }
     }
 }

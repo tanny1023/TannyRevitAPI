@@ -5,7 +5,7 @@ using Autodesk.Revit.UI.Selection;
 using System.Collections.Generic;
 using System.Windows;
 
-namespace TannyRevitAPIDemo
+namespace TannyRevitAPI
 {
     [Transaction(TransactionMode.Manual)]
     class Tanny10_WallJoined : IExternalCommand

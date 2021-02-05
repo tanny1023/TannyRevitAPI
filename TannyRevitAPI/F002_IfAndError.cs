@@ -3,7 +3,7 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.DB;
 using System.Collections.Generic;
 
-namespace TannyRevitAPIDemo
+namespace TannyRevitAPI
 {
     [Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Manual)]
     class F002_IfAndError : IExternalCommand
